@@ -82,7 +82,7 @@ app.post('/api/duel', (req, res) => {
             res.status(200).send('You lost!')
         } else {
             playerRecord.losses++
-            rollbar.error('Player will was recorded as loss'); //------ Added by me
+            rollbar.error('Player win was recorded as loss'); //------ Added by me
             res.status(200).send('You won!')
         }
     } catch (error) {
@@ -99,6 +99,8 @@ app.get('/api/player', (req, res) => {
         res.sendStatus(400)
     }
 })
+
+app.use(rollbar.errorHandler());
 
 const port = process.env.PORT || 3000
 
