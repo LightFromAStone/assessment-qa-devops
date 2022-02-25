@@ -27,6 +27,10 @@ app.get('/', (req, res) => {
 app.get('/js', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.js'));
  });
+
+app.get('/styles', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.css'));
+ });
  
  app.use(express.static(path.join(__dirname, 'public')));
  //------ End endpoint middleware ------//
